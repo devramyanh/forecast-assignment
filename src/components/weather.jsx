@@ -49,6 +49,7 @@ export default class Weather extends React.Component {
 
     return this.fetchWeatherForecast(lat, lon);
   };
+
   renderprogress = () => {
     return (
       <>
@@ -68,6 +69,7 @@ export default class Weather extends React.Component {
       </>
     );
   };
+
   renderForcastDetails = () => {
     const { selectValue, currentTemp, foreCastArr } = this.state;
     const threeDaysForCast = foreCastArr.map((ele, index) => {
@@ -86,7 +88,7 @@ export default class Weather extends React.Component {
         <div className="selected-city purple lighten-2 center">
           {selectValue}
         </div>
-        <i className="material-icons cloud">wb_iridescent</i>
+        <img src='climate.png' alt='climate' className="climate-img"/>
         <div className="current-temp">
           {currentTemp}
           <sup>o</sup>
@@ -101,6 +103,7 @@ export default class Weather extends React.Component {
       </>
     );
   };
+
   handleCitySelection = (e) => {
     const lat = e.target[e.target.selectedIndex].getAttribute("data-lat");
     const lon = e.target[e.target.selectedIndex].getAttribute("data-lon");
